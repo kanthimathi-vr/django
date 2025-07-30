@@ -1,0 +1,37 @@
+
+{% extends "base.html" %}
+{% load static%}
+{% block content %}
+<section class="container py-5">
+  <h1 class="fade-in">Projects{% if tag %} — "{{ tag }}" {% endif %}</h1>
+
+  <div class="tags mb-4 fade-in" style="animation-delay:.2s">
+    {% for t in tag_list %}
+      <a href="{% url 'projects_list' %}?tag={{ t }}">{{ t }}</a>
+    {% endfor %}
+    <a href="{% url 'projects_list' %}">All</a>
+  </div>
+
+  <div class="row gy-4">
+    {% for p in projects %}
+      <div class="col-md-6 col-lg-4 fade-in" data-delay="{{ forloop.counter }}">
+        <div class="card project-card">
+          <a href="{% url 'project_detail' slug=p.slug %}">
+          <img src="{% static project.thumbnail %}" class="card-img-top" alt="{{ project.title }}">
+  </a>
+          <div class="card-body">
+            <h5 class="card-title">{{ p.title }}</h5>
+            <p class="card-text">{{ p.brief }}</p>
+            <div class="tags-list">
+              {% for t in p.tags %}
+                <a href="{% url 'projects_list' %}?tag={{ t }}">{{ t }}</a>
+              {% endfor %}
+            </div>
+            <a href="{% url 'project_detail' slug=p.slug %}" class="btn btn-primary mt-2">View Details</a>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="container py-5 fade-in">
+  <h1>Contact Me</h1>
+  <p class="lead">Let’s work together — reach out using the form below!</p>
+  
+  <form method="POST" class="row g-3 mt-4">
+    {% csrf_token %}
+    
+    <div class="col-md-6">
+      <label class="form-label">Name</label>
+      <input name="name" required type="text" class="form-control">
+    </div>
+
+    <div class="col-md-6">
+      <label class="form-label">Email</label>
+      <input name="email" required type="email" class="form-control">
+    </div>
+
+    <div class="col-12">
+      <label class="form-label">Message</label>
+      <textarea name="message" rows="5" required class="form-control"></textarea>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Send Message</button>
+    </div>
+  </form>
+</section>
+{% endblock %}

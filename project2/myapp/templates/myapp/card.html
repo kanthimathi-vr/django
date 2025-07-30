@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="py-5" style="min-height: 100vh;">
+  <div class="container d-flex justify-content-center align-items-center">
+    
+    <div class="card rainbow-card text-white shadow-lg w-100" style="max-width: 750px; border: none; border-radius: 1rem;">
+      <div class="row g-0 align-items-center">
+
+        <!-- Left Side: Profile Image -->
+        <div class="col-md-4 text-center p-4">
+          <img src="{% static 'img/profile.jpg' %}" alt="{{ name }}"
+               class="img-fluid rounded-circle shadow"
+               style="width: 140px; height: 140px; object-fit: cover; border: 4px solid white;">
+        </div>
+
+        <!-- Right Side: Profile Details -->
+        <div class="col-md-8">
+          <div class="card-body text-md-start text-center px-4 py-4">
+            <h3 class="card-title mb-2">{{ name }}</h3>
+            <p class="text-white-50 mb-1">{{ role }}</p>
+            <p class="mb-1">
+              <a href="mailto:{{ email }}" class="text-white text-decoration-none">{{ email }}</a>
+            </p>
+            <!-- GitHub Button + QR Code: Flex Row -->
+    <div class="d-flex align-items-center justify-content-center justify-content-md-start mt-3 gap-3 flex-wrap">
+      <a href="{{ github }}" class="btn btn-light btn-sm" target="_blank" rel="noopener">
+        <i class="bi bi-github"></i> GitHub
+      </a>
+      <div id="qrcode" style="width: 94px; height: 94px; background: white; padding: 6px; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.3);"></div>
+    </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- QRCode.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+<script>
+  new QRCode(document.getElementById("qrcode"), {
+    text: "{{ github }}",
+    width: 80,
+    height: 80,
+    colorDark: "#000000",
+    colorLight: "#ffffff",
+    correctLevel: QRCode.CorrectLevel.H
+  });
+</script>
+{% endblock %}

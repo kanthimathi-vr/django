@@ -1,0 +1,63 @@
+
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="container text-center py-5 fade-in">
+  <h1 class="display-4">Hi, I'm <span>Kanthimathi</span></h1>
+  <p class="lead">A Full-Stack Web Developer who builds fast, secure, and scalable web apps.</p>
+  <a href="{% url 'projects_list' %}" class="btn btn-outline-dark custom-btn">View My Work</a>
+</section>
+
+<section class="container py-5 custom-cards">
+  <div class="text-center mb-5">
+    <h2 class="section-title">What I Do</h2>
+    <p class="section-subtitle">Skills I bring to your product</p>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-window-sidebar icon"></i>
+            <h4>Frontend</h4>
+            <p>React, Vue, HTML, CSS, Bootstrap</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Responsive UI, SPA architecture, animations & interaction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-hdd-network icon"></i>
+            <h4>Backend</h4>
+            <p>Flask, Django, Node.js, PostgreSQL</p>
+          </div>
+          <div class="flip-card-back">
+            <p>APIs, databases, auth, and scalable systems</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <i class="bi bi-cloud-arrow-up icon"></i>
+            <h4>DevOps</h4>
+            <p>Docker, CI/CD, GitHub Actions, Cloud</p>
+          </div>
+          <div class="flip-card-back">
+            <p>Automated deployment & cloud hosting</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

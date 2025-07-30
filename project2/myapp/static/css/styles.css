@@ -1,0 +1,20 @@
+.rainbow-card {
+  background: linear-gradient(
+    135deg,
+    #ff6ec4,
+    #ffb86c,
+    #faff70,
+    #00ffcc,
+    #60a0ff,
+    #b388ff,
+    #ff6ec4
+  );
+  background-size: 400% 400%;
+  animation: rainbowFlow 10s ease infinite;
+}
+
+@keyframes rainbowFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}

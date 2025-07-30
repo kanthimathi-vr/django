@@ -1,0 +1,16 @@
+[
+  {
+    "id": 1,
+    "title": "Inventory Management System",
+    "tags": ["flask", "sqlalchemy", "bootstrap"],
+    "slug": "inventory-management",
+    "description": "A Flask-based inventory tracker with user roles and reporting."
+  },
+  {
+    "id": 2,
+    "title": "Blog Engine",
+    "tags": ["django", "blog", "auth"],
+    "slug": "blog-engine",
+    "description": "A Django-powered blog with auth, comments, and REST API."
+  }
+]

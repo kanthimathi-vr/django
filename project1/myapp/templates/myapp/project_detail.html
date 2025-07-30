@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+<section class="container py-5 fade-in">
+  <h1>{{ project.title }}</h1>
+  <img src="{% static project.thumbnail %}" class="img-fluid mb-3" alt="{{ project.title }}">
+  <p>{{ project.description }}</p>
+  
+  <h5>Technologies:</h5>
+  <ul>
+    {% for t in project.tags %}
+      <li>{{ t }}</li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'projects_list' %}" class="btn btn-outline-secondary mt-3">← Back to Projects</a>
+</section>
+{% endblock %}
