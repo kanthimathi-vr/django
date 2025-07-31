@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact Us (ModelForm)</title>
+    {% load crispy_forms_tags %}
+</head>
+<body>
+    <h2>Contact Us - ModelForm</h2>
+    {% for message in messages %}
+        <p style="color: green;">{{ message }}</p>
+    {% endfor %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form|crispy }}
+        <button type="submit">Send</button>
+    </form>
+</body>
+</html>
