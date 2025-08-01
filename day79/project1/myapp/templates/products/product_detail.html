@@ -1,0 +1,15 @@
+<!-- templates/products/product_detail.html -->
+{% extends 'base.html' %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+    <h2>{{ product.name }}</h2>
+    <p><strong>Price:</strong> ${{ product.price }}</p>
+    <p><strong>Description:</strong> {{ product.description }}</p>
+    <p><strong>In Stock:</strong> {{ product.in_stock|yesno:"Yes,No" }}</p>
+
+    <a href="{% url 'product_edit' product.pk %}">Edit</a> |
+    <a href="{% url 'product_delete' product.pk %}">Delete</a> |
+    <a href="{% url 'product_list' %}">Back to List</a>
+{% endblock %}

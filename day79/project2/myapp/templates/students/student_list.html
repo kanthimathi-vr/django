@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block title %}Student List{% endblock %}
+{% block content %}
+<h2>All Students</h2>
+<ul class="list-group">
+  {% for student in students %}
+    <li class="list-group-item d-flex justify-content-between align-items-center">
+      <div>
+        <a href="{% url 'student_detail' student.pk %}">{{ student.name }}</a> - Roll No: {{ student.roll_no }}
+      </div>
+      <div>
+        <a href="{% url 'student_update' student.pk %}" class="btn btn-sm btn-primary">Edit</a>
+        <a href="{% url 'student_delete' student.pk %}" class="btn btn-sm btn-danger">Delete</a>
+      </div>
+    </li>
+  {% empty %}
+    <li class="list-group-item">No students found.</li>
+  {% endfor %}
+</ul>
+{% endblock %}
